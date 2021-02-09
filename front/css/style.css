@@ -1,3 +1,7 @@
+/*================================*/
+/*======= START tags style =======*/
+/*================================*/
+
 :root {
     --bs-font-sans-serif: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 }
@@ -25,6 +29,29 @@ body {
     background-color:  #34495e;
 }
 
+header {
+    background-color: #34495e;
+}
+
+section{
+    width: 100%;
+    height: 800px;
+    background-color: rgb(255, 255, 255);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+/*================================*/
+/*========  END tags style =======*/
+/*================================*/
+
+
+/*================================*/
+/*====== START Header style ======*/
+/*================================*/
+
 .container {
     display: flex;
     width: 100%;
@@ -32,10 +59,6 @@ body {
     padding-left: .75rem;
     margin-right: auto;
     margin-left: auto;
-}
-
-header {
-    background-color: #34495e;
 }
 
 .menu-list {
@@ -67,12 +90,15 @@ header {
     justify-content: flex-end;
 }
 
-section{
-    width: 100%;
-    height: 800px;
-    background-color: rgb(255, 255, 255);
-}
+/*================================*/
+/*======= END Header style =======*/
+/*================================*/
 
+/*================================*/
+/*======= START Body style =======*/
+/*================================*/
+
+/* Style for the background picture in full screen and auto scale. */
 .center-cropped {
     width: 100%;
     height: 100%;
@@ -90,33 +116,31 @@ section{
     margin: 0;
 }
 
-.card-container > .card {
+/* ------------ */
+/* General card */
+.card {
+    display: relative;
     width: 200px;
     height: 300px;
-    background-color: #34495e;
     margin: 0 20px;
+    color: #ecf0f1;
+    text-align: center;
+    text-decoration: none;
+    background-color: #34495e;
     box-shadow: 0px 5px 100px #000000;
     border-radius: 10px;
 }
 
-.card {
-    display: relative;
-}
-
-.card > *{
+.card > * {
     box-shadow: none;
     width: 100%;
     height: auto;
     margin: 0;
 }
+/* ------------ */
 
-.card {
-    margin: 0;
-    text-align: center;
-    text-decoration: none;
-    color: #ecf0f1;
-}
-
+/* ---------- */
+/* Card title */
 .card-title {
     padding: 5px 0;
     border-radius: 10px 10px 0 0;
@@ -124,14 +148,13 @@ section{
     box-shadow: 0px 10px 150px #000000;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    margin: 0;
-}
-
 .card-title > h2 {
     font-weight: 500;
 }
+/* ---------- */
 
+/* --------- */
+/* Card body */
 .card-img {
     margin: 42px 0 20px;
 }
@@ -151,7 +174,10 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0 15px;
     margin: 0;
 }
+/* ---------- */
 
+/* ----------- */
+/* Card footer */
 .card-bottom {
     height: 47px;
     padding: 5px 0;
@@ -175,8 +201,18 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 500;
     line-height: 1.7em;
 }
+/* ----------- */
+
+/*================================*/
+/*======== END Body style ========*/
+/*================================*/
 
 @media (max-width: 850px) {
+    
+    /*================================*/
+    /*===== START Hamburger menu =====*/
+    /*================================*/
+
     .menu-container{
         display: none;
     }
@@ -276,10 +312,16 @@ h1, h2, h3, h4, h5, h6 {
         transform: none;
     }
 
+    /*================================*/
+    /*====== END Hamburger menu ======*/
+    /*================================*/
+
+    /* Fix the background in mobile mod to avoid scrolling */
     .center-cropped {
         overflow: auto;
     }
 
+    /* Set column dispal for small devices */
     .card-container{
         top: 50px;
         flex-direction: column;
@@ -290,6 +332,7 @@ h1, h2, h3, h4, h5, h6 {
         margin: 0;
     }
 
+    /* Set vertical margin instead of horizontal */
     .card-container > .card {
         margin: 0 auto 50px auto ;
     }
@@ -297,57 +340,54 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media(min-width:850px){
+
+    /* Set length of the header*/
     .container {
         max-width: 850px;
     }
 
+    /* Disable hamburger menu */
     nav {
         display: none;
     }
 
+    /* Change distance between cards */
     .card-container > .card {
         margin: 0 30px;
-        width: 200px;
-        height: 300px;
     }
 
+    /* Change distance between cards */
     .card { 
-        transition: all .2s ease-in-out; 
+        transition: transform .2s ease-in-out; 
     }
-
+    /* Scale up the card on mouse hover */
     .card:hover { 
         transform: scale(1.2); 
     }
 }
 
 @media(min-width:1000px){
+    
+    /* Set length of the header*/
     .container{
         max-width: 1000px;
     }
 
-    nav{
-        display: none;
-    }
-
+    /* Change distance between cards */
     .card-container > .card {
         margin: 0 60px;
-        width: 200px;
-        height: 300px;
     }
 }
 
 @media(min-width:1400px){
+
+    /* Set length of the header*/
     .container {
         max-width: 1320px;
     }
 
-    nav {
-        display: none;
-    }
-
+    /* Change distance between cards */
     .card-container > .card {
-        width: 200px;
-        height: 300px;
         margin: 0 80px;
     }
 }
