@@ -113,6 +113,8 @@ section{
 .card {
     margin: 0;
     text-align: center;
+    text-decoration: none;
+    color: #ecf0f1;
 }
 
 .card-title {
@@ -141,11 +143,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .card-text {
-    margin: 20px 10px 50px;
+    margin: 20px 0 50px;
 }
 
 .card-text > p{
-    width: 180px;
+    width: 200px;
+    padding: 0 15px;
     margin: 0;
 }
 
