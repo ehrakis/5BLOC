@@ -1,0 +1,90 @@
+section {
+    background-color: #212f3d;
+}
+
+.house-card-container{
+    margin: 30px auto;
+}
+
+.house-card:not(:first-child) {
+    margin-top: 30px;
+}
+
+.house-card{
+    background-color: #34495e;
+    border-radius: 10px;
+    max-width: 800px;
+    display: flex;
+    flex-direction: row;
+}
+
+.house-card-information{
+    margin-top: 5px;
+    margin-left: 5px;
+    width: 100%;
+}
+
+@media (max-width: 850px) {
+    .house-card-img {
+        object-fit: cover;
+        width: 150px;
+        border-radius: 10px 0 0 10px;
+    }
+
+    .house-card{
+        max-width: 98%;
+        margin: auto;
+    }
+
+    .house-card-container{
+        width: 100%;
+    }
+
+    .house-card-title > h2{
+        font-size: 1.3em;
+    }
+
+    .house-card-detail{
+        line-height: 1;
+    }
+
+    .house-card:not(:first-child) {
+        margin-top: 15px;
+    }
+}
+
+@media(min-width:850px){
+    
+    .house-card-img {
+        object-fit: cover;
+        width: 200px;
+        border-radius: 10px 0 0 10px;
+    }
+
+    .house-card{
+        max-width: 90%;
+        margin: auto;
+    }
+
+    .house-card-container{
+        width: 100%;
+    }
+
+}
+
+@media(min-width:1000px){
+    
+    .house-card-img {
+        object-fit: cover;
+        width: 200px;
+        border-radius: 10px 0 0 10px;
+    }
+
+    .house-card{
+        max-width: 800px;
+    }
+
+    .house-card-container{
+        width: 80%;
+    }
+}
