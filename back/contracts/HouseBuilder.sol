@@ -44,7 +44,7 @@ contract HouseBuilder is Ownable{
         uint64 _price,
         uint16 _nbRoom,
         uint16 _meterSquarre
-    ) external {
+    ) public {
         
         houses.push(House(
             _name,
@@ -64,5 +64,22 @@ contract HouseBuilder is Ownable{
         ownerHousesCount[msg.sender] = ownerHousesCount[msg.sender].add(1);
         emit NewHouse(id, _name, _price); //TODO voir avec Clément pour les events
         
+    }
+    
+    function getHouseIds(address _owner) public view returns (uint[] memory){
+        uint[] memory housesId = new uint[](ownerHousesCount[_owner]);
+        uint count = 0;
+        for(uint i = 0; i < houses.length; i = i.add(1)){
+            if(housesToOwner[i] == _owner){
+                housesId[count] = i;
+                count.add(1);
+            }
+        }
+        
+        return housesId;
+    }
+    
+    function getHouseName(uint _houseId) public view returns (string memory){
+        return houses[_houseId].name;
     }
 }
