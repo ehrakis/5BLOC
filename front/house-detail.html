@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Sup Real Estate</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link href="css/tags.css" rel="stylesheet"/>
+        <link href="css/house-detail.css" rel="stylesheet"/>
+        <link href="css/top-menu.css" rel="stylesheet"/>
+        <link href="css/media.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div class="header-container">
+            <header class="container">
+                
+                <!-- Hamburger menu for smaller devices -->
+                <nav role="navigation">
+                    <div id="menuToggle">
+                        <input type="checkbox" />
+
+                        <!-- Hamburger icon -->
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                        <!-- Menu -->
+                        <ul id="menu">
+                        <a href="index.html"><li>Home</li></a>
+                        <a href="buy.html"><li>Buy</li></a>
+                        <a href="sell.html"><li>Sell</li></a>
+                        <a href="#"><li>About</li></a>
+                        </ul>
+                    </div>
+                </nav>
+
+                <a class="container" href="index.html">
+                    <img src="img/logo.png" alt="logo">
+                </a>
+                
+                <!-- Menu for larger devices -->
+                <div class="menu-container container">
+                    <ul class="menu-list container">
+                        <a href="index.html"><li>Home</li></a>
+                        <a href="buy.html"><li>Buy</li></a>
+                        <a href="sell.html"><li>Sell</li></a>
+                        <a href="#"><li>About</li></a>
+                    </ul>
+                </div>
+            </header>
+        </div>
+        <section>
+            <div class="house-container" id="house-container">
+                <!-- The house will be displayed here -->
+            </div>
+            <button id="buy-button"></button>
+        </section>
+        <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script language="javascript" type="text/javascript" src="./js/web3.min.js"></script>
+        <script language="javascript" type="text/javascript" src="./abi/HouseTransaction.js"></script>
+        <script language="javascript" type="text/javascript" src="./js/house-detail.js"></script>
+    </body>
+</html>

@@ -1,83 +1,14 @@
-:root {
-    --bs-font-sans-serif: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html{
-    height: 100%;
-}
-
-body {
-    display: flex;
-    flex-flow: column;
-    font-family: var(--bs-font-sans-serif);
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #ecf0f1;
-    margin:0;
-    height: 100%;
-    background-color:  #34495e;
-}
-
-.container {
-    display: flex;
-    width: 100%;
-    padding-right: .75rem;
-    padding-left: .75rem;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-header {
-    background-color: #34495e;
-}
-
-.menu-list {
-    height: 100%;
-    list-style: none;
-    font-size: 1.4em;
-    display: inherit;
-    margin: 0;
-}
-
-.menu-list > a{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-.flex-end{
-    justify-content: flex-end;
-}
-
-section{
-    width: 100%;
-    height: 800px;
-    background-color: aquamarine;
-}
-
-.center-cropped {
-    width: 100%;
-    height: 100%;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-image: url(../img/palace.jpg);
-}
-
 @media (max-width: 850px) {
+    
+    /*================================*/
+    /*===== START Hamburger menu =====*/
+    /*================================*/
+
     .menu-container{
         display: none;
     }
 
-    #menuToggle
-    {
+    #menuToggle {
         display: block;
         position: relative;
         top:10px;
@@ -86,21 +17,17 @@ section{
         user-select: none;
     }
 
-    #menuToggle a
-    {
+    #menuToggle a {
         text-decoration: none;
         color: #232323;
         transition: color 0.3s ease;
     }
 
-    #menuToggle a:hover
-    {
-        color: tomato;
+    #menuToggle a:hover {
+        color: #2ecc71;
     }
 
-
-    #menuToggle input
-    {
+    #menuToggle input {
         display: block;
         width: 40px;
         height: 32px;
@@ -113,8 +40,7 @@ section{
         -webkit-touch-callout: none;
     }
 
-    #menuToggle span
-    {
+    #menuToggle span {
         display: block;
         width: 33px;
         height: 4px;
@@ -129,36 +55,30 @@ section{
                     opacity 0.55s ease;
     }
 
-    #menuToggle span:first-child
-    {
+    #menuToggle span:first-child {
         transform-origin: 0% 0%;
     }
 
-    #menuToggle span:nth-last-child(2)
-    {
+    #menuToggle span:nth-last-child(2) {
         transform-origin: 0% 100%;
     }
 
-    #menuToggle input:checked ~ span
-    {
+    #menuToggle input:checked ~ span {
         opacity: 1;
         transform: rotate(45deg) translate(-2px, -1px);
         background: #e74c3c;
     }
 
-    #menuToggle input:checked ~ span:nth-last-child(3)
-    {
+    #menuToggle input:checked ~ span:nth-last-child(3) {
         opacity: 0;
         transform: rotate(0deg) scale(0.2, 0.2);
     }
 
-    #menuToggle input:checked ~ span:nth-last-child(2)
-    {
+    #menuToggle input:checked ~ span:nth-last-child(2) {
         transform: rotate(-45deg) translate(0, -1px);
     }
 
-    #menu
-    {
+    #menu {
         position: absolute;
         width: 300px;
         margin: -100px 0 0 -50px;
@@ -174,44 +94,91 @@ section{
         transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
     }
 
-    #menu li
-    {
+    #menu li {
         padding: 10px 0;
         font-size: 22px;
     }
 
-    #menuToggle input:checked ~ ul
-    {
+    #menuToggle input:checked ~ ul {
         transform: none;
     }
+
+    /*================================*/
+    /*====== END Hamburger menu ======*/
+    /*================================*/
+
+    /* Fix the background in mobile mod to avoid scrolling */
+    .center-cropped {
+        overflow: auto;
+    }
+
+    /* Set column dispal for small devices */
+    .card-container{
+        top: 50px;
+        flex-direction: column;
+        position: relative;
+        width: 100%;
+        min-height: 100%;
+        bottom: 100px;
+        margin: 0;
+    }
+
+    /* Set vertical margin instead of horizontal */
+    .card-container > .card {
+        margin: 0 auto 50px auto ;
+    }
+
 }
 
 @media(min-width:850px){
-    .container{
+
+    /* Set length of the header*/
+    .container {
         max-width: 850px;
     }
 
-    nav{
+    /* Disable hamburger menu */
+    nav {
         display: none;
+    }
+
+    /* Change distance between cards */
+    .card-container > .card {
+        margin: 0 30px;
+    }
+
+    /* Change distance between cards */
+    .card { 
+        transition: transform .2s ease-in-out; 
+    }
+    /* Scale up the card on mouse hover */
+    .card:hover { 
+        transform: scale(1.2); 
     }
 }
 
 @media(min-width:1000px){
+    
+    /* Set length of the header*/
     .container{
-        max-width: 900px;
+        max-width: 1000px;
     }
 
-    nav{
-        display: none;
+    /* Change distance between cards */
+    .card-container > .card {
+        margin: 0 60px;
     }
 }
 
 @media(min-width:1400px){
-    .container{
+
+    /* Set length of the header*/
+    .container {
         max-width: 1320px;
     }
 
-    nav{
-        display: none;
+    /* Change distance between cards */
+    .card-container > .card {
+        margin: 0 80px;
     }
 }
