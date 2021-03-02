@@ -22,9 +22,15 @@ function updateButton(id){
     getOwnerByHouseId(id).then(address => {
         if(address.toUpperCase() == userAccount.toUpperCase()){
             if($("#buy-button").html() !== "Edit") {
-                $("#buy-button").html("Edit")
-                $("#buy-button").off("click", buyHouse)
-                $("#buy-button").click(editHouse)
+                getHouseById($.urlParam('id')).then(house => {
+                    if (house[5]){
+                        $("#buy-button").html("Remove from sale")
+                    } else {
+                        $("#buy-button").html("Put on sale")
+                    }
+                    $("#buy-button").off("click", buyHouse)
+                    $("#buy-button").click(toggleOnSale)
+                })
             }
 
         } else {
@@ -59,6 +65,12 @@ function displayHouse(id){
     })
 }
 
+function toggleOnSale(){
+    getHouseById($.urlParam('id')).then(house => {
+        setOnSale(house[0], !house[5])
+    })
+}
+
 function buyHouse(){
     getHouseById($.urlParam('id')).then( house => {
         getOwnerByHouseId($.urlParam('id')).then( ownerAddress =>{
@@ -79,16 +91,33 @@ function getHouseById(id){
     return supRealEstate.methods.getHouseById(id).call();
 }
 
+function setOnSale(id, onSale){
+    $("#information").html("Your transaction is being proceed")
+    return supRealEstate.methods.setOnSale(id, onSale)
+    .send({from: userAccount})
+    .on("receipt", function(receipt) {
+        $("#information").html("Transaction complete")
+        location.reload();
+    })
+    .on("error", function(error) {
+        $("#information").html("Transaction failed")
+      console.log(error);
+    });
+}
+
 function transferHouse(house, ownerAddress){
+    $("#information").html("Your transaction is being proceed")
     return supRealEstate.methods.safeTransferFrom(ownerAddress, userAccount, house[0])
     .send({ 
         from: userAccount, 
         value: web3js.utils.toWei(house[6], "ether") 
     })
     .on("receipt", function(receipt) {
-        // TODO: add a component to dipsplay that the transaction succeed.
+        $("#information").html("Transaction complete")
+        location.reload();
     })
     .on("error", function(error) {
+        $("#information").html("Transaction failed")
       console.log(error);
     });
 }

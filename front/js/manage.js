@@ -1,26 +1,30 @@
 var supRealEstate;
 var userAccount;
+var housesloaded;
 
 function startApp() {
     supRealEstate = new web3js.eth.Contract(supRealEstateABI, supRealEstateAddress);
-
+    housesloaded = false;
     var accountInterval = setInterval(function() {
         if (web3.eth.accounts[0] !== userAccount) {
         userAccount = web3.eth.accounts[0];
         }
+        if(!housesloaded){
+            housesloaded = true;
+            if($('#manage-house-container').is(':empty')){
+                displayHouses();
+            }
+        }
     }, 100);
-
-    displayHouses()
 
 }
     
     function displayHouses(){
-        getHousesLength().then(logHouses)
+        getHouseIds(userAccount).then(logHouses)
     }
 
     function displayHouse(house){
-        if(house[5]){
-            $("#sell-house-container").append(`
+            $("#manage-house-container").append(`
                 <a class="house-card" href="house-detail.html?id=${house[0]}">
                     <img class="house-card-img" src="${house[4]}"/>
                     <div class="house-card-information">
@@ -32,19 +36,18 @@ function startApp() {
                         </div>
                     </div>
                 </a>`);
-        }
     }
 
     function getHouseById(id){
         return supRealEstate.methods.getHouseById(id).call();
     }
 
-    function getHousesLength(){
-        return supRealEstate.methods.getHousesLength().call();
+    function getHouseIds(address){
+        return supRealEstate.methods.getHouseIds(address).call();
     }
 
-    function logHouses(housesNumber){
-        for (id = 0; id < housesNumber; id++) {
+    function logHouses(ids){
+        for (const id of ids) {
             getHouseById(id).then(displayHouse)
         }
     }
