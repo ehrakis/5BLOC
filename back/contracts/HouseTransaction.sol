@@ -12,8 +12,10 @@ contract HouseTransaction is HouseBuilder {
     
     //TODO implementer comission
     function safeTransferFrom(address _from, address _to, uint256 _tokenId) public payable{
-        require (housesToOwner[_tokenId] == msg.sender || houses[_tokenId].onSale == true);
-        
+        House memory house = houses[_tokenId];
+        require (housesToOwner[_tokenId] == msg.sender || house.onSale == true);
+        require (msg.value >= house.price);
+
         payable(_from).transfer((msg.value*(100-commission))/100);
         
         ownerHousesCount[_to] = ownerHousesCount[_to].add(1);

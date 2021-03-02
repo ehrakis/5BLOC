@@ -2,6 +2,9 @@ pragma solidity >=0.7.0 <0.8.0;
 
 import "./SafeMath.sol";
 import "./Ownable.sol";
+import "./SafeMath8.sol";
+import "./SafeMath16.sol";
+import "./SafeMath64.sol";
 
 contract HouseBuilder is Ownable{
     
@@ -14,8 +17,7 @@ contract HouseBuilder is Ownable{
        string name;
        string description;
        string houseAddress;
-       string powerDiagnosis;
-       string gasDiagnosis;
+       string image;
        bool onSale;
        uint64 price;
        uint16 nbRoom;
@@ -38,8 +40,7 @@ contract HouseBuilder is Ownable{
         string memory _name,
         string memory _description,
         string memory _houseAddress,
-        string memory _powerDiagnosis,
-        string memory _gasDiagnosis,
+        string memory _image,
         bool _onSale,
         uint64 _price,
         uint16 _nbRoom,
@@ -50,8 +51,7 @@ contract HouseBuilder is Ownable{
             _name,
             _description,
             _houseAddress,
-            _powerDiagnosis,
-            _gasDiagnosis,
+            _image,
             _onSale,
             _price,
             _nbRoom,
@@ -78,8 +78,31 @@ contract HouseBuilder is Ownable{
         
         return housesId;
     }
-    
-    function getHouseName(uint _houseId) public view returns (string memory){
-        return houses[_houseId].name;
+
+    function getHouseById(uint _houseId) public view returns (
+        uint,
+        string memory,
+        string memory,
+        string memory,
+        string memory,
+        bool,
+        uint64,
+        uint16,
+        uint16
+    ){
+        House memory house = houses[_houseId];
+        return (_houseId,
+        house.name,
+        house.description,
+        house.houseAddress,
+        house.image,
+        house.onSale,
+        house.price,
+        house.nbRoom,
+        house.meterSquarre);
+    }
+
+    function getHousesLength() public view returns (uint){
+        return houses.length;
     }
 }
