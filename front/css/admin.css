@@ -1,0 +1,24 @@
+#buy-button{
+    background-color: #27ae60;
+    margin: auto;
+    margin-top: 30px;
+    display: block;
+    border: none;
+    border-radius: 10px;
+    color: #ecf0f1;
+    font-size: 1.5rem;
+    width: 400px;
+    height: 50px;
+}
+
+#buy-button:focus{
+    outline: none;
+}
+
+#buy-button:hover{
+    cursor: pointer;
+}
+
+#buy-button:active{
+    background-color: #176939;
+}

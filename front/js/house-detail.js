@@ -2,8 +2,7 @@ var supRealEstate;
 var userAccount;
 
 function startApp() {
-    var supRealEstateTransactionAddress = "0x99c5e7c40Caa1Ed127E7281De1799363AB9CC6Dc";
-    supRealEstate = new web3js.eth.Contract(supRealEstateABI, supRealEstateTransactionAddress);
+    supRealEstate = new web3js.eth.Contract(supRealEstateABI, supRealEstateAddress);
 
     var accountInterval = setInterval(function() {
         if (web3.eth.accounts[0] !== userAccount) {
@@ -87,7 +86,7 @@ function transferHouse(house, ownerAddress){
         value: web3js.utils.toWei(house[6], "ether") 
     })
     .on("receipt", function(receipt) {
-      console.log("success")
+        // TODO: add a component to dipsplay that the transaction succeed.
     })
     .on("error", function(error) {
       console.log(error);

@@ -2,7 +2,6 @@ var supRealEstate;
 var userAccount;
 
 function startApp() {
-    var supRealEstateAddress = "0x99c5e7c40Caa1Ed127E7281De1799363AB9CC6Dc";
     supRealEstate = new web3js.eth.Contract(supRealEstateABI, supRealEstateAddress);
 
     var accountInterval = setInterval(function() {
