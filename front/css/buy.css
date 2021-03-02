@@ -16,6 +16,8 @@ section {
     max-width: 800px;
     display: flex;
     flex-direction: row;
+    color: #ecf0f1;
+    text-decoration: none;
 }
 
 .house-card-information{
