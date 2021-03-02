@@ -42,8 +42,8 @@ contract HouseTransaction is HouseBuilder {
         return houses[_houseId].onSale;
     }
     
-    function withdraw() public onlyOwner {
-        address payable _owner = payable(owner());
-        _owner.transfer(address(this).balance);
+    function withdraw() public returns (bool){
+        payable(owner()).transfer(address(this).balance);
+        return true;
     }
 }
