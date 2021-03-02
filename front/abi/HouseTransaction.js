@@ -214,26 +214,6 @@ supRealEstateABI = [
     "inputs": [
       {
         "internalType": "uint256",
-        "name": "_houseId",
-        "type": "uint256"
-      }
-    ],
-    "name": "getOwnerByHouseId",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function",
-    "constant": true
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
         "name": "",
         "type": "uint256"
       }
@@ -458,7 +438,13 @@ supRealEstateABI = [
   {
     "inputs": [],
     "name": "withdraw",
-    "outputs": [],
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
     "stateMutability": "nonpayable",
     "type": "function"
   }
