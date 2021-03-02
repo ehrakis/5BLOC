@@ -19,7 +19,7 @@ function startApp() {
     }
 
     function displayHouse(house){
-        if(house[4]){
+        if(house[5]){
             $("#sell-house-container").append(`
                 <a class="house-card" href="house-detail.html?id=${house[0]}">
                     <img class="house-card-img" src="${house[4]}"/>
